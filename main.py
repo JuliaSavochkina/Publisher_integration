@@ -35,7 +35,7 @@ def checker():
         is_click_id_correct_length_get(parameters)
         is_click_id_numerical_get(parameters)
     except ValidationError as error:
-        return jsonify(error.args[0])
+        return jsonify(error.args[0]), 400
 
     return jsonify({"status": "Success",
                     "description": "Congratulations, GET request was sent correctly"}), 200
@@ -56,7 +56,7 @@ def checker_post():
         is_value_present_post(parameters)
         is_post_parameter_is_one_post(parameters)
     except ValidationError as error:
-        return jsonify(error.args[0])
+        return jsonify(error.args[0]), 400
 
     return jsonify({"status": "Success",
                     "description": "Congratulations, POST request was sent correctly"}), 200
